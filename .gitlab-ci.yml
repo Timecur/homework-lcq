@@ -1,0 +1,52 @@
+image: hub.pri.ibanyu.com/frontend/node-builder-aphaia
+
+stages:
+  - build_test
+  - build_prod
+  - depoly_test
+
+before_script:
+  - yarn install --silent
+
+# 测试环境构建
+build_test:
+  stage: build_test
+  only:
+    - dev
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - yarn build:dev
+  artifacts:
+    name: "$CI_COMMIT_TAG"
+    paths:
+      - build/
+
+# 线上环境构建
+build_prod:
+  stage: build_prod
+  only:
+    - /^release-.+/
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - yarn build:pro
+  artifacts:
+    name: "$CI_COMMIT_TAG"
+    paths:
+      - build/
+
+# 测试环境自动部署
+depoly_test:
+  stage: depoly_test
+  only:
+    - dev
+  cache:
+    paths:
+      - node_modules/
+  script:
+
+    - echo 'deploy test'
+    - yarn trigger-jenkins --projectName=$CI_PROJECT_NAME --gitlabProjectId=$CI_PROJECT_ID --gitlabPipelineId=$CI_PIPELINE_ID
