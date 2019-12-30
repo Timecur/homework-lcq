@@ -18,7 +18,9 @@ export default {
   name: 'by-breadcrumb',
   data() {
     return {
-      levelList: null,
+      // levelList: null,
+      breadList: [],
+      // 路由集合
     }
   },
   watch: {
@@ -31,11 +33,12 @@ export default {
   },
   methods: {
     getBreadcrumb() {
-      let matched = this.$route.matched.filter(item => item.name)
-
+      let matched = this.$route.matched.filter(item => item.meta.title)
       const first = matched[0]
       if (first && first.name.trim().toLocaleLowerCase() !== 'Sale'.toLocaleLowerCase()) {
-        matched = [{ path: '/home', meta: { title: '首页' } }].concat(matched)
+        matched = [{ path: '/home', meta: { title: '' } }].concat()
+        // meta:定义了与文档相关联的名称/值对
+        // 返回一个数组，包含当前路由的所有嵌套路径片段的路由记录。
       }
 
       this.levelList = matched.filter(item => item.meta
@@ -59,14 +62,16 @@ export default {
   },
 }
 </script>
+
 <style rel="stylesheet/scss" lang="scss" scoped>
   .app-breadcrumb.el-breadcrumb {
     display: inline-block;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 50px;
-    margin-left: 8px;
+    margin-left: 9px;
     .no-redirect {
-      color: #97a8be;
+      color: #01060c;
+      font-weight: 900;
       cursor: text;
     }
   }

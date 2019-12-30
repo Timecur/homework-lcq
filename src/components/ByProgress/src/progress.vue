@@ -6,7 +6,6 @@
       status ? 'is-' + status : '',
       {
         'by-progress--without-text': !showText,
-        'by-progress--text-inside': textInside,
       }
     ]"
     role="progressbar"

@@ -16,6 +16,7 @@ module.exports = {
     'no-plusplus': ['off'],
     'no-param-reassign': ['off'],
     'no-underscore-dangle': ['off'],
+    'no-console': 'off',
     'import/extensions': ['error', 'always', {
       'js': 'never',
       'vue': 'never'

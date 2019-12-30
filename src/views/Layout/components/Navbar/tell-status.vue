@@ -55,7 +55,7 @@ export default {
   },
   async created() {
     this.loading = false
-    await this.$store.dispatch('GetTrcticlientStatus', { vm: this })
+    // await this.$store.dispatch('GetTrcticlientStatus', { vm: this })
     this.loading = true
   },
   methods: {

@@ -47,7 +47,7 @@ export default {
     cursor: pointer;
     position: relative;
     .user-avatar {
-      width: 40px;
+      width: 402px;
       height: 40px;
       border-radius: 10px;
     }

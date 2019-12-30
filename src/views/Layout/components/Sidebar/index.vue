@@ -23,6 +23,8 @@ import variables from '@/styles/variables.scss'
 
 export default {
   components: { SidebarItem },
+  props: {
+  },
   data() {
     return {
     }
@@ -32,6 +34,9 @@ export default {
       'permissionRouters',
       'sidebar',
     ]),
+    parseType() {
+      return undefined
+    },
     variables() {
       return variables
     },

@@ -2,10 +2,12 @@
   <div class="navbar">
     <div class="left-menu" v-if="sidebar.opened">
       <p class="title">
-        vue-okr大作业
+        目标
       </p>
     </div>
-
+    <a href="/local/okr" class="okr">
+      OKR管理系统
+    </a>
     <hamburger
       @toggleClick="toggleSideBar"
       :is-active="sidebar.opened"
@@ -59,6 +61,10 @@ export default {
   left: 0;
   z-index: 100;
   width: 100%;
+  .okr{
+    font-size: 15px;
+    color: #1890ff;
+  }
   .hamburger-container {
     line-height: 50px;
     height: 50px;
@@ -77,7 +83,7 @@ export default {
     height: 100%;
     .title {
       width: 180px;
-      font-size: 30px;
+      font-size: 20px;
       line-height: 50px;
       text-align: center;
       margin: 0;
