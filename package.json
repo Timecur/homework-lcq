@@ -24,7 +24,7 @@
     "@ipalfish/palfish_front_log_manager": "^0.2.4",
     "async-validator": "^1.10.1",
     "axios": "^0.18.0",
-    "cookiejar": "^2.1.2",
+    "cookiejar": "^2.1.4",
     "decimal.js": "^10.0.2",
     "element-ui": "^2.4.11",
     "js-base64": "^2.5.1",
